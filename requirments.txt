@@ -2,3 +2,4 @@ tensorflow
 numpy
 flask
 Pillow
+uvicorn==0.10.0
