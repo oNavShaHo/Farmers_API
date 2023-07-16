@@ -3,12 +3,14 @@ import numpy as np
 import tensorflow as tf
 import os
 from PIL import Image
+from flask_cors import CORS
 
-app = Flask(__name__ , static_folder='static')
+app = Flask(__name__, static_folder='static')
 app.config["UPLOAD_FOLDER1"] = "./static"
+CORS(app)
 
 
-@app.route('/predict', methods=['POST' , 'GET'])
+@app.route('/predict', methods=['POST', 'GET'])
 def predict():
     img = request.files['file']
     img.save(os.path.join('./static/' + img.filename))
